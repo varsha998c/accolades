@@ -65,18 +65,59 @@ const Left = styled.div`
         width: 1px;
         background-color: #fff;
         height: 77px;
+        @media all and (max-width: 480px) {
+            display: none;
+        }
+    }
+    @media all and (max-width: 1080px) {
+        width: 216px;
+    }
+    @media all and (max-width: 980px) {
+        width: 192px;
+    }
+    @media all and (max-width: 768px) {
+        width: 160px;
+    }
+    @media all and (max-width: 480px) {
+        width: 136px;
     }
 `;
 const Right = styled.div`
     width: 80%;
+    @media all and (max-width: 1280px) {
+        width: 72%;
+    }
+    @media all and (max-width: 1080px) {
+        width: 73%;
+    }
+    @media all and (max-width: 980px) {
+        width: 55%;
+        padding: 0;
+    }
+    @media all and (max-width: 768px) {
+        display: flex;
+        width: 69%;
+        justify-content: flex-end;
+    }
+    @media all and (max-width: 640px) {
+        width: 55%;
+    }
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
 `;
 const LogoContainer = styled.div`
     width: 130px;
     cursor: pointer;
-`;
-const MenuContainer = styled.div`
-    width: 25px;
-    cursor: pointer;
+    @media all and (max-width: 1080px) {
+        width: 112px;
+    }
+    @media all and (max-width: 980px) {
+        width: 98px;
+    }
+    @media all and (max-width: 768px) {
+        width: 82px;
+    }
 `;
 
 const ProfileContainer = styled.div`
@@ -86,6 +127,15 @@ const ProfileContainer = styled.div`
     align-items: center;
     margin-left: auto;
     border-left: 1px solid #2c2c2c;
+    @media all and (max-width: 1280px) {
+        width: 20%;
+    }
+    @media all and (max-width: 1080px) {
+        width: 22%;
+    }
+    @media all and (max-width: 980px) {
+        width: 35%;
+    }
 `;
 const ImgContainer = styled.div`
     margin-left: 10px;
@@ -95,6 +145,12 @@ const LogOut = styled.h4`
     color: #344049;
     font-size: 14px;
     cursor: pointer;
+    @media all and (max-width: 1280px) {
+        font-size: 16px;
+    }
+    @media all and (max-width: 640px) {
+        display: none;
+    }
 `;
 const ProfileImage = styled.div`
     cursor: pointer;
@@ -107,4 +163,13 @@ const Img = styled.img`
     display: block;
     cursor: pointer;
     margin-right: 10px;
+    @media all and (max-width: 1280px) {
+        width: 26px;
+    }
+    @media all and (max-width: 1080px) {
+        width: 25px;
+    }
+    @media all and (max-width: 980px) {
+        width: 23px;
+    }
 `;

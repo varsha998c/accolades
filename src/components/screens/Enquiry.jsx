@@ -19,6 +19,7 @@ function Enquiry() {
                                     <Title>Email</Title>
                                     <Title>Number</Title>
                                     <Title>Comments</Title>
+                                    <Title>Reply</Title>
                                 </TitleDiv>
                                 <Cover>
                                     <EnquiryCard />
@@ -35,6 +36,15 @@ function Enquiry() {
 export default Enquiry;
 const Container = styled.div`
     padding: 70px 0 0 273px;
+    @media all and (max-width: 1280px) {
+        padding-left: 86px;
+    }
+    @media all and (max-width: 768px) {
+        padding-left: 40px;
+    }
+    @media all and (max-width: 480px) {
+        padding-left: 20px;
+    }
 `;
 const Section = styled.div`
     padding: 0px 30px;
@@ -72,16 +82,40 @@ const Bottom = styled.div`
     padding: 20px;
     overflow: hidden;
     position: relative;
+    @media all and (max-width: 1280px) {
+        min-width: 941px;
+    }
+    @media all and (max-width: 1080px) {
+        min-width: 582px;
+    }
+    @media all and (max-width: 980px) {
+        min-width: 582px;
+    }
+    @media all and (max-width: 768px) {
+        min-width: 515px;
+    }
+    @media all and (max-width: 640px) {
+        min-width: 406px;
+    }
+    @media all and (max-width: 480px) {
+        min-width: 277px;
+    }
+    @media all and (max-width: 360px) {
+        min-width: 264px;
+    }
 `;
 const Div = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    @media all and (max-width: 1080px) {
+        overflow: scroll;
+    }
 `;
 const TitleDiv = styled.ul`
     display: grid;
     min-width: 1142px;
-    grid-template-columns: 1fr 2fr 2fr 2fr 3fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 3fr 2fr;
     grid-column-gap: 20px;
     margin-bottom: 15px;
 `;
@@ -90,7 +124,7 @@ const Title = styled.li`
     color: #747474;
 `;
 const Cover = styled.div`
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     height: calc(100vh - 318px);
     &::-webkit-scrollbar {
         display: none;

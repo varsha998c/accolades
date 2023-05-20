@@ -16,7 +16,7 @@ export default function Testimonials() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
     };
     return (
@@ -48,7 +48,7 @@ export default function Testimonials() {
                         distracted by the readable content of a page when
                         looking at its layout.The point of lorem ipsum
                     </Details>
-                    <div>
+                    <BottomSection>
                         {" "}
                         <Slider {...settings}>
                             <Single>
@@ -141,7 +141,7 @@ export default function Testimonials() {
                                 </Right>
                             </Single>
                         </Slider>
-                    </div>
+                    </BottomSection>
                 </Section>
             </TestimonialSection>
         </>
@@ -151,16 +151,35 @@ export default function Testimonials() {
 const TestimonialSection = styled.div`
     padding: 100px 0 40px 200px;
     height: 90vh;
+    @media all and (max-width: 1280px) {
+        padding-left: 86px;
+    }
+    @media all and (max-width: 640px) {
+        padding-left: 40px;
+    }
+`;
+const BottomSection = styled.div`
+    width: 95% !important;
+    margin: 30px auto 0;
 `;
 const Section = styled.div`
     width: 80%;
     margin: 0 auto;
+    @media all and (max-width: 1280px) {
+        width: 90%;
+    }
 `;
 const TopSection = styled.div`
     padding: 0 40px 0 100px;
     display: flex;
     margin-bottom: 40px;
     justify-content: flex-end;
+    @media all and (max-width: 768px) {
+        padding-left: 20px;
+    }
+    @media all and (max-width: 640px) {
+        padding: 0;
+    }
 `;
 const Li = styled.div`
     margin: 0 10px;
@@ -176,6 +195,18 @@ const Li = styled.div`
     &:last-child {
         margin-right: 0;
     }
+    @media all and (max-width: 640px) {
+        width: 70px;
+    }
+    @media all and (max-width: 480px) {
+        width: 54px;
+        font-size: 12px;
+        margin: 0 2px;
+        background: transparent;
+        color: #000 !important;
+    }
+    @media all and (max-width: 360px) {
+    }
 `;
 
 const Heading = styled.h2`
@@ -184,6 +215,15 @@ const Heading = styled.h2`
     margin-bottom: 40px;
     color: #59b8b4;
     font-family: -webkit-body;
+    @media all and (max-width: 980px) {
+        font-size: 35px;
+    }
+    @media all and (max-width: 768px) {
+        font-size: 30px;
+    }
+    @media all and (max-width: 480px) {
+        font-size: 25px;
+    }
 `;
 const Details = styled.p`
     color: #000;
@@ -193,6 +233,12 @@ const Details = styled.p`
     margin: 0 auto;
     text-align: center;
     margin-bottom: 40px;
+    @media all and (max-width: 768px) {
+        width: 100%;
+    }
+    @media all and (max-width: 640px) {
+        font-size: 16px;
+    }
 `;
 
 const Single = styled.div`
@@ -201,6 +247,9 @@ const Single = styled.div`
 const Image = styled.div`
     width: 25%;
     margin: 0 auto;
+    @media all and (max-width: 640px) {
+        width: 50%;
+    }
 `;
 const Imgs = styled.img`
     width: 100%;
@@ -218,6 +267,10 @@ const SubHeading = styled.h3`
     margin-bottom: 40px;
     color: #195454;
     font-family: -webkit-body;
+    @media all and (max-width: 640px) {
+        font-size: 25px;
+        margin-top: 10px;
+    }
 `;
 const Paragraph = styled.p`
     font-size: 18px;
@@ -228,4 +281,8 @@ const Paragraph = styled.p`
     margin: 0 auto;
     text-align: center;
     font-family: -webkit-body;
+    @media all and (max-width: 640px) {
+        width: 100%;
+        font-size: 16px;
+    }
 `;

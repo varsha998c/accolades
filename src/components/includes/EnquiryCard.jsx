@@ -51,6 +51,9 @@ function EnquiryCard({}) {
                     <Data>{item.email}</Data>
                     <NameData className="assign">{item.number}</NameData>
                     <Data>{item.comment}</Data>
+                    <Data>
+                        <span>Mail</span>
+                    </Data>
                 </DataDiv>
             ))}
         </>
@@ -61,7 +64,7 @@ export default EnquiryCard;
 const DataDiv = styled.ul`
     display: grid;
     min-width: 1142px;
-    grid-template-columns: 1fr 2fr 2fr 2fr 3fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 3fr 2fr;
     grid-column-gap: 20px;
     margin-bottom: 15px;
     background: #ffffff;
@@ -112,5 +115,13 @@ const Data = styled.li`
 
     img {
         width: 15px;
+    }
+    span {
+        background-color: #2da99b;
+        font-size: 12px;
+        padding: 6px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #fff;
     }
 `;

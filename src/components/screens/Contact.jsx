@@ -20,7 +20,7 @@ function ContactLegalForm() {
             <Edit isEdit={isEdit} setEdit={setEdit} />
             <Update update={update} setUpdate={setUpdate} />
             <Add add={add} setAdd={setAdd} />
-            <Container id="legal">
+            <Container>
                 <TopSection>
                     <Li onClick={() => setEdit(!isEdit)}>Edit</Li>
                     <Li onClick={() => setUpdate(!update)}>Update</Li>
@@ -97,7 +97,13 @@ const Container = styled.div`
     position: relative;
     background-color: #e2efef;
     padding: 100px 0 0 250px;
-    height: 100vh;
+    height: auto;
+    @media all and (max-width: 1280px) {
+        padding-left: 86px;
+    }
+    @media all and (max-width: 640px) {
+        padding-left: 50px;
+    }
 `;
 const TopSection = styled.div`
     padding: 0 40px 0 100px;
@@ -133,6 +139,9 @@ const LeftCover = styled.div`
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 8px;
+    @media all and (max-width: 980px) {
+        width: 100%;
+    }
 `;
 const Head = styled.div``;
 const Title = styled.h3`
@@ -141,6 +150,12 @@ const Title = styled.h3`
     color: #59b8b4;
     font-family: -webkit-body;
     margin-bottom: 20px;
+    @media all and (max-width: 640px) {
+        width: 100%;
+    }
+    @media all and (max-width: 480px) {
+        font-size: 30px;
+    }
 `;
 
 const Description = styled.p`
@@ -150,6 +165,10 @@ const Description = styled.p`
     max-width: 70%;
     margin-bottom: 20px;
     position: relative;
+    @media all and (max-width: 480px) {
+        font-size: 14px;
+        max-width: 100%;
+    }
 `;
 
 const Bottom = styled.div``;

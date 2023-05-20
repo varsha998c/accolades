@@ -56,6 +56,24 @@ function EditService({ editService, setService }) {
         setCrop(false);
     };
 
+    const [content, setContent] = useState("");
+    const onContentChange = (e) => {
+        setContent(e.target.value);
+    };
+    const [description, setDescription] = useState("");
+    const onParaChange = (e) => {
+        setDescription(e.target.value);
+    };
+
+    // submit
+    const handleChange = () => {
+        if (content && description && image) {
+            setService(false);
+        } else {
+            setService(true);
+        }
+    };
+
     return (
         <>
             {editService && (
@@ -176,7 +194,8 @@ function EditService({ editService, setService }) {
                                     type="text"
                                     id="title"
                                     placeholder="title"
-                                    value=""
+                                    value={content}
+                                    onChange={onContentChange}
                                 />
                             </InputSection>
                         </InputCover>
@@ -188,7 +207,8 @@ function EditService({ editService, setService }) {
                                         type="text"
                                         id="title"
                                         placeholder="description"
-                                        value=""
+                                        value={description}
+                                        onChange={onParaChange}
                                     />
                                 </InputSection>
                             </InputSection>
@@ -198,7 +218,7 @@ function EditService({ editService, setService }) {
                             {image?.file?.name ? (
                                 <Save
                                     onClick={() => {
-                                        setService(false);
+                                        handleChange();
                                     }}
                                 >
                                     Submit
@@ -336,6 +356,20 @@ const Section = styled.div`
     ::-webkit-scrollbar {
         display: none !important;
     }
+    @media all and (max-width: 1280px) {
+        width: 60%;
+        height: 100vh;
+        max-height: 100vh;
+    }
+    @media all and (max-width: 1280px) {
+        width: 80%;
+    }
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
+    @media all and (max-width: 360px) {
+        padding: 20px;
+    }
 `;
 const Heading = styled.h1`
     font-size: 36px;
@@ -414,6 +448,24 @@ const BottomSection = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    @media all and (max-width: 1280px) {
+        width: 33%;
+    }
+    @media all and (max-width: 1080px) {
+        width: 37%;
+    }
+    @media all and (max-width: 980px) {
+        width: 48%;
+    }
+    @media all and (max-width: 768px) {
+        width: 58%;
+    }
+    @media all and (max-width: 640px) {
+        width: 80%;
+    }
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
 `;
 const Cancel = styled.div`
     color: #747474;

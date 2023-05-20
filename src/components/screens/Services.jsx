@@ -38,7 +38,7 @@ function Services() {
                             </Li>
                         </TopSection>
                     </div>
-                    <div
+                    <Content
                         style={{
                             display: "flex",
                             justifyContent: "space-between",
@@ -96,7 +96,7 @@ function Services() {
                                 our digital marketing services.
                             </Description>
                         </Div>
-                    </div>
+                    </Content>
                 </Section>
             </Container>
         </>
@@ -104,11 +104,22 @@ function Services() {
 }
 
 export default Services;
+const Content = styled.div`
+    @media all and (max-width: 980px) {
+        flex-wrap: wrap !important;
+    }
+`;
 const Container = styled.div`
     position: relative;
     background-color: #e2efef;
     padding: 100px 0 0 200px;
-    height: 100vh;
+
+    @media all and (max-width: 1280px) {
+        padding-left: 86px;
+    }
+    @media all and (max-width: 640px) {
+        padding-left: 40px;
+    }
 `;
 
 const Heading = styled.h2`
@@ -117,15 +128,36 @@ const Heading = styled.h2`
     color: #59b8b4;
     font-family: -webkit-body;
     text-transform: capitalize;
+    @media all and (max-width: 980px) {
+        font-size: 35px;
+    }
+    @media all and (max-width: 768px) {
+        font-size: 30px;
+    }
+    @media all and (max-width: 480px) {
+        font-size: 25px;
+    }
 `;
 const Section = styled.div`
     padding: 0px 30px;
+    @media all and (max-width: 1280px) {
+        width: 90%;
+    }
+    @media all and (max-width: 1080px) {
+        width: 100%;
+    }
 `;
 const TopSection = styled.div`
     padding: 0 40px 0 100px;
     display: flex;
     margin-bottom: 40px;
     justify-content: flex-end;
+    @media all and (max-width: 768px) {
+        padding-left: 20px;
+    }
+    @media all and (max-width: 640px) {
+        padding: 0;
+    }
 `;
 const Li = styled.div`
     margin: 0 10px;
@@ -141,6 +173,18 @@ const Li = styled.div`
     &:last-child {
         margin-right: 0;
     }
+    @media all and (max-width: 640px) {
+        width: 70px;
+    }
+    @media all and (max-width: 480px) {
+        width: 54px;
+        font-size: 12px;
+        margin: 0 2px;
+        background: transparent;
+        color: #000 !important;
+    }
+    @media all and (max-width: 360px) {
+    }
 `;
 
 const Div = styled.div`
@@ -151,6 +195,9 @@ const Div = styled.div`
     height: 370px;
     &:hover {
         background-color: #ddd;
+    }
+    @media all and (max-width: 980px) {
+        width: 100%;
     }
 `;
 const ImgContainer = styled.div`

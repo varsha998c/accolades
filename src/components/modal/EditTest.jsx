@@ -55,7 +55,23 @@ function EditTest({ editTest, setEditTest }) {
         });
         setCrop(false);
     };
+    const [content, setContent] = useState("");
+    const onContentChange = (e) => {
+        setContent(e.target.value);
+    };
+    const [description, setDescription] = useState("");
+    const onParaChange = (e) => {
+        setDescription(e.target.value);
+    };
 
+    // submit
+    const handleChange = () => {
+        if (content && description && image) {
+            setEditTest(false);
+        } else {
+            setEditTest(true);
+        }
+    };
     return (
         <>
             {editTest && (
@@ -176,7 +192,8 @@ function EditTest({ editTest, setEditTest }) {
                                     type="text"
                                     id="title"
                                     placeholder="title"
-                                    value=""
+                                    value={content}
+                                    onChange={onContentChange}
                                 />
                             </InputSection>
                         </InputCover>
@@ -188,7 +205,8 @@ function EditTest({ editTest, setEditTest }) {
                                         type="text"
                                         id="title"
                                         placeholder="description"
-                                        value=""
+                                        value={description}
+                                        onChange={onParaChange}
                                     />
                                 </InputSection>
                             </InputSection>
@@ -198,7 +216,7 @@ function EditTest({ editTest, setEditTest }) {
                             {image?.file?.name ? (
                                 <Save
                                     onClick={() => {
-                                        setEditTest(false);
+                                        handleChange();
                                     }}
                                 >
                                     Submit
@@ -335,6 +353,20 @@ const Section = styled.div`
     box-sizing: border-box;
     ::-webkit-scrollbar {
         display: none !important;
+    }
+    @media all and (max-width: 1280px) {
+        width: 60%;
+        height: 100vh;
+        max-height: 100vh;
+    }
+    @media all and (max-width: 1280px) {
+        width: 80%;
+    }
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
+    @media all and (max-width: 360px) {
+        padding: 20px;
     }
 `;
 const Heading = styled.h1`

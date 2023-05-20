@@ -127,6 +127,49 @@ const Container = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
+    @media all and (max-width: 1280px) {
+        padding: 94px 13px;
+        width: ${({ type }) => (type ? "294px" : "80px")};
+        h4 {
+            display: none;
+        }
+        &:hover {
+            width: 274px;
+        }
+        &:hover h4 {
+            display: block;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        &:hover .active {
+            justify-content: flex-start;
+        }
+    }
+    @media all and (max-width: 1080px) {
+        padding: 94px 13px;
+        width: ${({ type }) => (type ? "250px" : "60px")};
+        &:hover {
+            width: 249px;
+        }
+        &:hover h4 {
+            display: block;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        padding-left: ${({ type }) => (type ? "10px" : "0px")};
+        padding-right: ${({ type }) => (type ? "10px" : "0px")};
+    }
+    @media all and (max-width: 980px) {
+        width: ${({ type }) => (type ? "225px" : "60px")};
+        &:hover {
+            width: 225px;
+        }
+    }
+    @media all and (max-width: 768px) {
+    }
+    @media all and (max-width: 640px) {
+        width: ${({ type }) => (type ? "224px" : "40px")};
+    }
 `;
 const Section = styled.div``;
 const List = styled.ul``;
@@ -150,6 +193,17 @@ const ItemContainer = styled(NavLink)`
         align-items: center;
         color: #fff;
         cursor: pointer;
+        @media all and (max-width: 1280px) {
+            padding: 16px 11px;
+            justify-content: center;
+        }
+        @media all and (max-width: 1080px) {
+            padding: 16px 11px;
+            justify-content: flex-start;
+        }
+        @media all and (max-width: 768px) {
+            padding: 10px 15px;
+        }
     }
 `;
 const LeftSection = styled.div`

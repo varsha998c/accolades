@@ -180,3 +180,13 @@
     opacity: .75;
     color: rgb(19, 87, 80) !important;
 }
+@media all and (max-width:640px){
+    .slick-next {
+        width: 50px !important;
+        height: 50px !important;
+        }  
+    .slick-prev{
+            width: 50px !important;
+            height: 50px !important;
+        } 
+    }

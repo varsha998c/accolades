@@ -54,6 +54,28 @@ function EditAbout({ editAbout, setEditAbout, title }) {
         });
         setCrop(false);
     };
+    const [name, setName] = useState("");
+    const onNameChange = (e) => {
+        setName(e.target.value);
+    };
+
+    const [content, setContent] = useState("");
+    const onContentChange = (e) => {
+        setContent(e.target.value);
+    };
+    const [description, setDescription] = useState("");
+    const onParaChange = (e) => {
+        setDescription(e.target.value);
+    };
+
+    // submit
+    const handleChange = () => {
+        if (name && content && description && image) {
+            setEditAbout(false);
+        } else {
+            setEditAbout(true);
+        }
+    };
     return (
         <>
             {editAbout && (
@@ -73,7 +95,8 @@ function EditAbout({ editAbout, setEditAbout, title }) {
                                         type="text"
                                         id="title"
                                         placeholder="description"
-                                        value=""
+                                        onChange={onNameChange}
+                                        value={name}
                                     />
                                 </InputSection>
                             </InputSection>
@@ -188,7 +211,8 @@ function EditAbout({ editAbout, setEditAbout, title }) {
                                     type="text"
                                     id="title"
                                     placeholder="title"
-                                    value=""
+                                    onChange={onContentChange}
+                                    value={content}
                                 />
                             </InputSection>
                         </InputCover>
@@ -200,7 +224,8 @@ function EditAbout({ editAbout, setEditAbout, title }) {
                                         type="text"
                                         id="title"
                                         placeholder="description"
-                                        value=""
+                                        onChange={onParaChange}
+                                        value={description}
                                     />
                                 </InputSection>
                             </InputSection>
@@ -208,13 +233,7 @@ function EditAbout({ editAbout, setEditAbout, title }) {
                         <BottomSection>
                             <Cancel>cancel</Cancel>
                             {image?.file?.name ? (
-                                <Save
-                                    onClick={() => {
-                                        setEditAbout(false);
-                                    }}
-                                >
-                                    Submit
-                                </Save>
+                                <Save onClick={handleChange}>Submit</Save>
                             ) : (
                                 ""
                             )}
@@ -251,6 +270,9 @@ const Heading = styled.h1`
     color: #59b8b4;
     font-family: -webkit-body;
     margin-bottom: 20px;
+    @media all and (max-width: 360px) {
+        font-size: 30px;
+    }
 `;
 const Overlay = styled.div`
     position: fixed;
@@ -279,9 +301,26 @@ const Section = styled.div`
     ::-webkit-scrollbar {
         display: none !important;
     }
+    @media all and (max-width: 1280px) {
+        width: 60%;
+        height: 100vh;
+        max-height: 100vh;
+    }
+    @media all and (max-width: 1280px) {
+        width: 80%;
+    }
+    @media all and (max-width: 480px) {
+        width: 100%;
+    }
+    @media all and (max-width: 360px) {
+        padding: 20px;
+    }
 `;
 const InputCover = styled.div`
     margin-bottom: 20px;
+    @media all and (max-width: 1280px) {
+        margin-bottom: 0;
+    }
 `;
 const Label = styled.label``;
 const InputSection = styled.div`
@@ -314,6 +353,9 @@ const InputSection = styled.div`
         }
         ::-webkit-scrollbar {
             display: none;
+        }
+        @media all and (max-width: 1280px) {
+            margin-bottom: 0 !important;
         }
     }
 `;

@@ -75,7 +75,8 @@ function About() {
                         alignItems: "center",
                     }}
                 >
-                    <Heading>Testimonial</Heading>
+                    {" "}
+                    <Heading>About Us</Heading>
                     <TopSection>
                         <Li onClick={() => setEditAbout(!editAbout)}>Edit</Li>
                         <Li onClick={() => setEditAbout(!editAbout)}>Update</Li>
@@ -85,14 +86,14 @@ function About() {
 
                 <Section className="wrapper">
                     <AboutContainer>
-                        <div
+                        <Div
+                            className="contents"
                             style={{
                                 display: "flex",
                                 flexDirection: "column",
                                 width: "50%",
                             }}
                         >
-                            <Heading>About Us</Heading>
                             <Description>
                                 The ultimatum of our successful company is to
                                 adequately provide our prospective clients with
@@ -103,7 +104,7 @@ function About() {
                                 responsibility to amend the success rate for all
                                 our specific clients.
                             </Description>
-                        </div>
+                        </Div>
                         <ImgContainer>
                             <img
                                 src={require("../../assets/images/download.jpg")}
@@ -112,7 +113,7 @@ function About() {
                         </ImgContainer>
                     </AboutContainer>
                     <Work>Our Works</Work>
-                    <div
+                    <Content
                         style={{
                             display: "grid",
                             gap: "30px",
@@ -133,7 +134,7 @@ function About() {
                                 <Paragraph>{item.description}</Paragraph>
                             </Contents>
                         ))}
-                    </div>
+                    </Content>
                 </Section>
             </Container>
         </>
@@ -141,20 +142,30 @@ function About() {
 }
 
 export default About;
+const Content = styled.div`
+    @media all and (max-width: 980px) {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    @media all and (max-width: 480px) {
+        grid-template-columns: 1fr !important;
+    }
+`;
+const Div = styled.div`
+    @media all and (max-width: 980px) {
+        width: 100% !important;
+    }
+`;
 const Container = styled.div`
     padding: 86px 0 40px 282px;
     background: #edeae7;
+    @media all and (max-width: 1280px) {
+        padding-left: 86px;
+    }
+    @media all and (max-width: 640px) {
+        padding-left: 50px;
+    }
 `;
-const Pink = styled.div`
-    position: absolute;
-    width: 510px;
-    height: 510px;
-    left: 394px;
-    top: 34px;
-    background: #d88f46;
-    opacity: 0.56;
-    filter: blur(200px);
-`;
+
 const Section = styled.div`
     width: 95%;
     margin: 0 auto;
@@ -162,18 +173,39 @@ const Section = styled.div`
 const AboutContainer = styled.div`
     display: flex;
     justify-content: space-between;
+    @media all and (max-width: 1280px) {
+        align-items: center;
+    }
+    @media all and (max-width: 980px) {
+        flex-direction: column;
+    }
 `;
 const Heading = styled.h1`
     color: #ee960a;
     font-family: -webkit-body;
     font-size: 46px;
     margin-bottom: 30px;
+    @media all and (max-width: 980px) {
+        font-size: 40px;
+    }
+    @media all and (max-width: 768px) {
+        font-size: 30px;
+    }
+    @media all and (max-width: 360px) {
+        font-size: 25px;
+    }
 `;
 const TopSection = styled.div`
     padding: 0 40px 0 100px;
     display: flex;
     margin-bottom: 40px;
     justify-content: flex-end;
+    @media all and (max-width: 768px) {
+        padding-left: 20px;
+    }
+    @media all and (max-width: 640px) {
+        padding: 0;
+    }
 `;
 const Li = styled.div`
     margin: 0 10px;
@@ -189,6 +221,18 @@ const Li = styled.div`
     &:last-child {
         margin-right: 0;
     }
+    @media all and (max-width: 640px) {
+        width: 70px;
+    }
+    @media all and (max-width: 480px) {
+        width: 54px;
+        font-size: 12px;
+        margin: 0 2px;
+    }
+    @media all and (max-width: 360px) {
+        background: transparent;
+        color: #000 !important;
+    }
 `;
 
 const Description = styled.p`
@@ -197,6 +241,12 @@ const Description = styled.p`
     color: #000;
     font-family: -webkit-body;
     line-height: 1.6rem;
+    @media all and (max-width: 980px) {
+        width: 100%;
+    }
+    @media all and (max-width: 768px) {
+        font-size: 16px;
+    }
 `;
 const Contents = styled.div`
     border-radius: 8px;
@@ -206,6 +256,15 @@ const Contents = styled.div`
 `;
 const ImgContainer = styled.div`
     width: 500px;
+    @media all and (max-width: 640px) {
+        width: 398px;
+    }
+    @media all and (max-width: 480px) {
+        width: 308px;
+    }
+    @media all and (max-width: 360px) {
+        width: 260px;
+    }
     &:hover {
         transform: translate(10px, 30px);
     }
@@ -220,6 +279,9 @@ const Work = styled.div`
     font-family: -webkit-body;
     color: #0ad99e;
     text-align: center;
+    @media all and (max-width: 768px) {
+        font-size: 30px;
+    }
 `;
 const ImgsContainer = styled.div`
     &:hover {
@@ -232,8 +294,14 @@ const Title = styled.h3`
     font-family: -webkit-body;
     margin-bottom: 20px;
     color: #b38214;
+    @media all and (max-width: 768px) {
+        font-size: 25px;
+    }
 `;
 const Paragraph = styled.p`
     font-size: 18px;
     font-family: -webkit-body;
+    @media all and (max-width: 768px) {
+        font-size: 16px;
+    }
 `;
